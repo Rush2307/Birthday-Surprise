@@ -6,138 +6,145 @@
 <title>Birthday Surprise</title>
 
 <style>
-h1{
-font-family:'Dancing Script',cursive;
-font-size: 60px;
-}    
+
+*{
+  box-sizing: border-box;
+}
 
 body{
-background:#1a0210;
-color:#ff85c0;
-font-family:'Dancing Script',cursive;
-margin:0;
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
-text-align:center;
+  background:#1a0210;
+  color:#ff85c0;
+  font-family:'Dancing Script',cursive;
+  margin:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+  text-align:center;
+  padding:10px;
+}
+
+h1{
+  font-size:clamp(28px, 6vw, 60px);
 }
 
 .container{
-width:95%;
-max-width:1200px;
+  width:100%;
+  max-width:1200px;
 }
 
 .screen{display:none;}
 .active{display:block;}
 
 button{
-background:#ff4d94;
-color:white;
-border:none;
-padding:12px 25px;
-border-radius:25px;
-cursor:pointer;
-margin-top:15px;
-font-family:'Dancing Script',cursive;
+  background:#ff4d94;
+  color:white;
+  border:none;
+  padding:12px 25px;
+  border-radius:25px;
+  cursor:pointer;
+  margin-top:15px;
 }
 
 .reveal-box{
-background:#330d21;
-padding:15px;
-margin:10px;
-border-radius:10px;
-border:1px solid #ff4d94;
-cursor:pointer;
+  background:#330d21;
+  padding:15px;
+  margin:10px;
+  border-radius:10px;
+  border:1px solid #ff4d94;
+  cursor:pointer;
 }
 
 .hidden-text{display:none;}
 
 .progress-container{
-background:#330d21;
-border-radius:20px;
-height:20px;
-width:100%;
-margin:20px 0;
-overflow:hidden;
+  background:#330d21;
+  border-radius:20px;
+  height:20px;
+  width:100%;
+  margin:20px 0;
+  overflow:hidden;
 }
 
 .progress-bar{
-background:linear-gradient(90deg,#ff4d94,#ff85c0);
-height:100%;
-width:0%;
+  background:linear-gradient(90deg,#ff4d94,#ff85c0);
+  height:100%;
+  width:0%;
 }
 
 /* BIRTHDAY LAYOUT */
 
 .birthday-title{
-font-family:'Dancing Script',cursive;
-font-size:42px;
-margin-bottom:30px;
+  font-size:clamp(22px,5vw,42px);
+  margin-bottom:20px;
 }
 
 .layout{
-display:flex;
-justify-content:center;
-align-items:center;
-gap:30px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:20px;
+  flex-wrap:wrap; /* 🔥 important fix */
 }
 
 .left,
 .right{
-display:flex;
-flex-direction:column;
-gap:20px;
+  display:flex;
+  flex-direction:column;
+  gap:15px;
 }
 
 .photo{
-width:150px;
-height:150px;
-border:3px solid black;
-border-radius:10px;
-object-fit:cover;
-background:white;
+  width:120px;
+  height:120px;
+  border:3px solid black;
+  border-radius:10px;
+  object-fit:cover;
+  background:white;
 }
 
 .wish-box{
-width:350px;
-height:350px;
-background:#ffc0cb;
-border:3px solid black;
-border-radius:10px;
-overflow:auto;
-
-color:#333;
-font-size:16px;
+  width:100%;
+  max-width:350px;
+  height:250px;
+  background:#ffc0cb;
+  border:3px solid black;
+  border-radius:10px;
+  overflow:auto;
+  color:#333;
+  font-size:14px;
+  padding:10px;
 }
 
+/* Scrollbar */
 .wish-box::-webkit-scrollbar {
-  width: 12px;              /* thickness */
+  width: 10px;
 }
-
-.wish-box::-webkit-scrollbar-track {
-  background: #ffc0cb;   /* light transparent track */
-  border-radius: 10px;
-}
-
 .wish-box::-webkit-scrollbar-thumb {
-  background: rgba(0,0,0,0.3);   /* mid transparent */
+  background: rgba(0,0,0,0.3);
   border-radius: 10px;
-  height: 10px;
 }
 
-.wish-box::-webkit-scrollbar-thumb:hover {
-  background: rgba(0,0,0,0.6);   /* darker on hover */
-}
+/* TEXT */
+.hb{ font-size:18px; }
+.cb{ font-size:28px; }
 
-.hb{
-    font-size: 25px;
-    font-style: strong;
-}
+/* 📱 MOBILE FIX */
+@media (max-width:768px){
 
-.cb{
-    font-family:'Dancing Script',cursive;
-    font-size: 40px;
+  .layout{
+    flex-direction:column; /* stack everything */
+  }
+
+  .photo{
+    width:100px;
+    height:100px;
+  }
+
+  .wish-box{
+    height:200px;
+  }
+
 }
 
 </style>
@@ -151,7 +158,7 @@ font-size:16px;
 <div id="screen1" class="screen active">
 <h1>Hey Twisha!!!!</h1>
 <p class="hb"> Happy Birthdayyyy!!!! 🥳🎉🎂🎁 </p>
-<p class="a1"> I Have A Little Birthday Surprise For You 😁😁😁</p>
+<p> I Have A Little Birthday Surprise For You 😁😁😁</p>
 <p>I Know I Am Late Bcz Bday Surprise Are Always Given On Bday </p>
 <p>So Sorryyyyy!!!!!!!</p>
 <button onclick="startMeter()">Click Here For Surprise 🎁</button>
@@ -159,9 +166,7 @@ font-size:16px;
 
 <!-- Screen 2 -->
 <div id="screen2" class="screen">
-
 <p>Checking Birthday Happiness Level...</p>
-
 <h2 id="percentage">0%</h2>
 
 <div class="progress-container">
@@ -169,20 +174,17 @@ font-size:16px;
 </div>
 
 <div id="warning" style="display:none;color:gold">
-⚠ Warning:- Too Much Happiness To Handle!!😁😁
+⚠ Too Much Happiness To Handle!!😁😁
 </div>
 
 <button id="contBtn" style="display:none" onclick="nextScreen(3)">
-Cilck Here!!
+Click Here!!
 </button>
-
 </div>
 
 <!-- Screen 3 -->
-
 <div id="screen3" class="screen">
-
-<p  class="cb">Click At Every Box 🎁</p>
+<p class="cb">Click At Every Box 🎁</p>
 
 <div class="reveal-box" onclick="reveal(this)">
 🎂 <span class="hidden-text">Happy Birthday Twishaaa!!!! 🥳🎉🎂🎁</span>
@@ -193,18 +195,17 @@ Cilck Here!!
 </div>
 
 <div class="reveal-box" onclick="reveal(this)">
-🎂 <span class="hidden-text">And Haa Party Baaki Che Hoo!!! 😁😁😁</span>
+🎂 <span class="hidden-text">Party Baaki Che Hoo!!! 😁😁😁</span>
 </div>
 
 <div class="reveal-box" onclick="reveal(this)">
 🎂 <span class="hidden-text">Don't Forget The 3rd One!!! 😁😁😁</span>
 </div>
 
-<button onclick="nextScreen(4)">💖 Click For Final Surprise →</button>
+<button onclick="nextScreen(4)">💖 Final Surprise →</button>
 </div>
 
 <!-- Screen 4 -->
-
 <div id="screen4" class="screen">
 
 <div class="birthday-title">
@@ -220,11 +221,8 @@ Happy Birthday Twishaa!! 🎉
 </div>
 
 <div class="wish-box">
-
 <p>
 Happy Birthday Twisha 🎂🎉<br><br>
-
-Hey Tissshhhh… 😄
 Happppppyyyyy Birthdayyyyy Toooo Youuuuu 🥳🎂
 Many Many Happy Returns Of The Day 💙<br><br>
 
@@ -243,7 +241,6 @@ Bas Aaje Ek J Wish…
 Tu Hamesha Happy Rehje  🌟<br><br>
 Once Again Happppppyyyyy Birthdayyyyy 🥳🥳🎂🎂🥂🥂🎉🎉🎁🎁🫂🫂✨️✨️
 </p>
-
 </div>
 
 <div class="right">
@@ -253,20 +250,17 @@ Once Again Happppppyyyyy Birthdayyyyy 🥳🥳🎂🎂🥂🥂🎉🎉🎁🎁�
 </div>
 
 </div>
-
 </div>
 
 </div>
 
 <script>
-
 function nextScreen(num){
 document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
 document.getElementById('screen'+num).classList.add('active');
 }
 
 function startMeter(){
-
 nextScreen(2);
 
 let percent=0;
@@ -274,9 +268,7 @@ let bar=document.getElementById('bar');
 let text=document.getElementById('percentage');
 
 let interval=setInterval(()=>{
-
 percent++;
-
 bar.style.width=(percent/143)*100 + "%";
 text.innerText=percent+"%";
 
@@ -285,9 +277,7 @@ clearInterval(interval);
 document.getElementById('warning').style.display='block';
 document.getElementById('contBtn').style.display='inline-block';
 }
-
 },30)
-
 }
 
 function reveal(el){
@@ -295,7 +285,6 @@ el.querySelector('.hidden-text').style.display='inline';
 el.style.background='#ff4d94';
 el.style.color='white';
 }
-
 </script>
 
 </body>
