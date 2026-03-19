@@ -135,12 +135,16 @@ button{
   .right{
     flex-direction:row;
     flex-wrap:nowrap;
-    justify-content:center;
+    overflow-x:auto;
+    gap:12px;
+    padding:5px;
+    
   }
 
   .photo{
-    width:30%;   /* 3 images in row look clean */
-    height:100px;
+    width:130px;   /* 3 images in row look clean */
+    height:130px;
+    flex-shrink:0;
   }
 
   .wish-box{
