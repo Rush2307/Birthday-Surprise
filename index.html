@@ -7,9 +7,7 @@
 
 <style>
 
-*{
-  box-sizing: border-box;
-}
+*{ box-sizing: border-box; }
 
 body{
   background:#1a0210;
@@ -24,14 +22,9 @@ body{
   padding:10px;
 }
 
-h1{
-  font-size:clamp(28px, 6vw, 60px);
-}
+h1{ font-size:clamp(28px, 6vw, 60px); }
 
-.container{
-  width:100%;
-  max-width:1200px;
-}
+.container{ width:100%; max-width:1200px; }
 
 .screen{display:none;}
 .active{display:block;}
@@ -84,9 +77,10 @@ button{
   justify-content:center;
   align-items:center;
   gap:20px;
-  flex-wrap:wrap; /* 🔥 important fix */
+  flex-wrap:wrap;
 }
 
+/* PC DEFAULT (vertical) */
 .left,
 .right{
   display:flex;
@@ -133,11 +127,19 @@ button{
 @media (max-width:768px){
 
   .layout{
-    flex-direction:column; /* stack everything */
+    flex-direction:column;
+  }
+
+  /* 🔥 MAKE PHOTOS HORIZONTAL */
+  .left,
+  .right{
+    flex-direction:row;
+    flex-wrap:wrap;
+    justify-content:center;
   }
 
   .photo{
-    width:100px;
+    width:30%;   /* 3 images in row look clean */
     height:100px;
   }
 
@@ -156,7 +158,7 @@ button{
 
 <!-- Screen 1 -->
 <div id="screen1" class="screen active">
-<h1>Hey Twi!!!!</h1>
+<h1>Hey Twisha!!!!</h1>
 <p class="hb"> Happy Birthdayyyy!!!! 🥳🎉🎂🎁 </p>
 <p> I Have A Little Birthday Surprise For You 😁😁😁</p>
 <p>I Know I Am Late Bcz Bday Surprise Are Always Given On Bday </p>
