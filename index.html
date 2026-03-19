@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Surprise</title>
+
+<style>
+h1{
+font-family:'Dancing Script',cursive;
+font-size: 60px;
+}    
+
+body{
+background:#1a0210;
+color:#ff85c0;
+font-family:'Dancing Script',cursive;
+margin:0;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+text-align:center;
+}
+
+.container{
+width:95%;
+max-width:1200px;
+}
+
+.screen{display:none;}
+.active{display:block;}
+
+button{
+background:#ff4d94;
+color:white;
+border:none;
+padding:12px 25px;
+border-radius:25px;
+cursor:pointer;
+margin-top:15px;
+font-family:'Dancing Script',cursive;
+}
+
+.reveal-box{
+background:#330d21;
+padding:15px;
+margin:10px;
+border-radius:10px;
+border:1px solid #ff4d94;
+cursor:pointer;
+}
+
+.hidden-text{display:none;}
+
+.progress-container{
+background:#330d21;
+border-radius:20px;
+height:20px;
+width:100%;
+margin:20px 0;
+overflow:hidden;
+}
+
+.progress-bar{
+background:linear-gradient(90deg,#ff4d94,#ff85c0);
+height:100%;
+width:0%;
+}
+
+/* BIRTHDAY LAYOUT */
+
+.birthday-title{
+font-family:'Dancing Script',cursive;
+font-size:42px;
+margin-bottom:30px;
+}
+
+.layout{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:30px;
+}
+
+.left,
+.right{
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+
+.photo{
+width:150px;
+height:150px;
+border:3px solid black;
+border-radius:10px;
+object-fit:cover;
+background:white;
+}
+
+.wish-box{
+width:350px;
+height:350px;
+background:#ffc0cb;
+border:3px solid black;
+border-radius:10px;
+overflow:auto;
+
+color:#333;
+font-size:16px;
+}
+
+.wish-box::-webkit-scrollbar {
+  width: 12px;              /* thickness */
+}
+
+.wish-box::-webkit-scrollbar-track {
+  background: #ffc0cb;   /* light transparent track */
+  border-radius: 10px;
+}
+
+.wish-box::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.3);   /* mid transparent */
+  border-radius: 10px;
+  height: 10px;
+}
+
+.wish-box::-webkit-scrollbar-thumb:hover {
+  background: rgba(0,0,0,0.6);   /* darker on hover */
+}
+
+.hb{
+    font-size: 25px;
+    font-style: strong;
+}
+
+.cb{
+    font-family:'Dancing Script',cursive;
+    font-size: 40px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- Screen 1 -->
+<div id="screen1" class="screen active">
+<h1>Hey Twisha!!!!</h1>
+<p class="hb"> Happy Birthdayyyy!!!! 🥳🎉🎂🎁 </p>
+<p class="a1"> I Have A Little Birthday Surprise For You 😁😁😁</p>
+<p>I Know I Am Late Bcz Bday Surprise Are Always Given On Bday </p>
+<p>So Sorryyyyy!!!!!!!</p>
+<button onclick="startMeter()">Click Here For Surprise 🎁</button>
+</div>
+
+<!-- Screen 2 -->
+<div id="screen2" class="screen">
+
+<p>Checking Birthday Happiness Level...</p>
+
+<h2 id="percentage">0%</h2>
+
+<div class="progress-container">
+<div id="bar" class="progress-bar"></div>
+</div>
+
+<div id="warning" style="display:none;color:gold">
+⚠ Warning:- Too Much Happiness To Handle!!😁😁
+</div>
+
+<button id="contBtn" style="display:none" onclick="nextScreen(3)">
+Cilck Here!!
+</button>
+
+</div>
+
+<!-- Screen 3 -->
+
+<div id="screen3" class="screen">
+
+<p  class="cb">Click At Every Box 🎁</p>
+
+<div class="reveal-box" onclick="reveal(this)">
+🎂 <span class="hidden-text">Happy Birthday Twishaaa!!!! 🥳🎉🎂🎁</span>
+</div>
+
+<div class="reveal-box" onclick="reveal(this)">
+🎂 <span class="hidden-text">Enjoy Your Dayyy!!!🥳🥳</span>
+</div>
+
+<div class="reveal-box" onclick="reveal(this)">
+🎂 <span class="hidden-text">And Haa Party Baaki Che Hoo!!! 😁😁😁</span>
+</div>
+
+<div class="reveal-box" onclick="reveal(this)">
+🎂 <span class="hidden-text">Don't Forget The 3rd One!!! 😁😁😁</span>
+</div>
+
+<button onclick="nextScreen(4)">💖 Click For Final Surprise →</button>
+</div>
+
+<!-- Screen 4 -->
+
+<div id="screen4" class="screen">
+
+<div class="birthday-title">
+Happy Birthday Twishaa!! 🎉
+</div>
+
+<div class="layout">
+
+<div class="left">
+<img src="img1.jpeg" class="photo">
+<img src="img2.jpeg" class="photo">
+<img src="img3.jpeg" class="photo">
+</div>
+
+<div class="wish-box">
+
+<p>
+Happy Birthday Twisha 🎂🎉<br><br>
+
+Hey Tissshhhh… 😄
+Happppppyyyyy Birthdayyyyy Toooo Youuuuu 🥳🎂
+Many Many Happy Returns Of The Day 💙<br><br>
+
+Aaje Taro Special Day Che… Hope Tu Khub Happy Hoy Ane Badhu Mast J Thay 😌
+Ek Nanakdi Sorry Pan…
+Aa Surprise Birthday Ni Divse Aapvano Hato Pan Thodu Late Thai Gayu 😔
+(Thodu Late Chu… Pan Intent Pure VIP Hato 😅)
+<br><br>
+Seriously Bolu Toh…
+Life Ma Ghana Loko Aave Ane Jaye…
+Pan Tara Jevi Caring Ane Important Friend Male E Kharekhar Lucky Ni Baat Che 🫶
+Apde Ketla Time Thi Proper Vaat Pan Nathi Kari…
+Ane Hu Kharekhar Tari Saathe Ni Vaat Miss Karu Chu 😌
+I Hope Apde Jaldi Proper Vaat Kariye Ane Jaldi Madiye Pan 🫂
+Bas Aaje Ek J Wish…
+Tu Hamesha Happy Rehje  🌟<br><br>
+Once Again Happppppyyyyy Birthdayyyyy 🥳🥳🎂🎂🥂🥂🎉🎉🎁🎁🫂🫂✨️✨️
+</p>
+
+</div>
+
+<div class="right">
+<img src="img4.jpeg" class="photo">
+<img src="img5.jpeg" class="photo">
+<img src="img6.jpeg" class="photo">
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function nextScreen(num){
+document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+document.getElementById('screen'+num).classList.add('active');
+}
+
+function startMeter(){
+
+nextScreen(2);
+
+let percent=0;
+let bar=document.getElementById('bar');
+let text=document.getElementById('percentage');
+
+let interval=setInterval(()=>{
+
+percent++;
+
+bar.style.width=(percent/143)*100 + "%";
+text.innerText=percent+"%";
+
+if(percent>=143){
+clearInterval(interval);
+document.getElementById('warning').style.display='block';
+document.getElementById('contBtn').style.display='inline-block';
+}
+
+},30)
+
+}
+
+function reveal(el){
+el.querySelector('.hidden-text').style.display='inline';
+el.style.background='#ff4d94';
+el.style.color='white';
+}
+
+</script>
+
+</body>
+</html>
